@@ -725,7 +725,8 @@ islands.push(
     produces: "Trouble",
     discovered: false,
     discoveryBonus: 0,
-    description: "A pirate stronghold. Dock to negotiate, fight, or destroy them.",
+    description:
+      "A pirate stronghold. Dock to negotiate, fight, or destroy them.",
     prices: {},
   },
   {
@@ -752,7 +753,8 @@ islands.push(
     produces: "Tea",
     discovered: false,
     discoveryBonus: 320,
-    description: "Misty terraces of tea bushes. Pays well for Glass and Silver.",
+    description:
+      "Misty terraces of tea bushes. Pays well for Glass and Silver.",
     prices: {
       Tea: 14,
       Glass: 58,
@@ -769,7 +771,8 @@ islands.push(
     produces: "Glass",
     discovered: false,
     discoveryBonus: 320,
-    description: "Furnace island that turns sand into bottles and panes. Wants spice and tea.",
+    description:
+      "Furnace island that turns sand into bottles and panes. Wants spice and tea.",
     prices: {
       Glass: 16,
       Spices: 46,
@@ -786,7 +789,8 @@ islands.push(
     produces: "Spices",
     discovered: false,
     discoveryBonus: 280,
-    description: "Sun-baked cliffs growing rare spices. Pays top coin for Cloth and Tea.",
+    description:
+      "Sun-baked cliffs growing rare spices. Pays top coin for Cloth and Tea.",
     prices: {
       Spices: 11,
       Cloth: 44,
@@ -803,7 +807,8 @@ islands.push(
     produces: "Fish",
     discovered: false,
     discoveryBonus: 260,
-    description: "Far-north cold-water rock with cheap fish and big appetite for sugar.",
+    description:
+      "Far-north cold-water rock with cheap fish and big appetite for sugar.",
     prices: {
       Fish: 6,
       Sugar: 38,
@@ -820,7 +825,8 @@ islands.push(
     produces: "Wood",
     discovered: false,
     discoveryBonus: 280,
-    description: "An ancient pine island at the edge of charted seas. Wants Iron and Glass.",
+    description:
+      "An ancient pine island at the edge of charted seas. Wants Iron and Glass.",
     prices: {
       Wood: 7,
       Iron: 42,
@@ -866,7 +872,7 @@ const storms = [
 ];
 
 const game = {
-  gold: 9150,
+  gold: 150,
   messageUntil: 0,
   dockedIsland: null,
   keys: new Set(),
@@ -1101,7 +1107,10 @@ function pushToast(text, kind = "info") {
 
   const toast = document.createElement("div");
   toast.className = `toast ${kind}`;
-  toast.setAttribute("role", kind === "danger" || kind === "warning" ? "alert" : "status");
+  toast.setAttribute(
+    "role",
+    kind === "danger" || kind === "warning" ? "alert" : "status",
+  );
   toast.innerHTML = `
     <div class="toast-accent" aria-hidden="true"></div>
     <div class="toast-body">
@@ -1115,7 +1124,9 @@ function pushToast(text, kind = "info") {
   const dismiss = () => {
     if (!toast.isConnected) return;
     toast.classList.add("fading");
-    toast.addEventListener("animationend", () => toast.remove(), { once: true });
+    toast.addEventListener("animationend", () => toast.remove(), {
+      once: true,
+    });
   };
   setTimeout(dismiss, TOAST_LIFETIME_MS);
   toast.addEventListener("click", dismiss);
@@ -1323,7 +1334,10 @@ function applyStormStrike() {
   }
   const lost = loseRandomCargo(ship, 0.35 + Math.random() * 0.2);
   if (lost > 0) {
-    setMessage(`Storm rocks the ${ship.name}! Lost ${lost} cargo overboard.`, "danger");
+    setMessage(
+      `Storm rocks the ${ship.name}! Lost ${lost} cargo overboard.`,
+      "danger",
+    );
   } else {
     setMessage(`Storm rocks the ${ship.name}! No cargo to lose.`, "warning");
   }
@@ -1337,7 +1351,10 @@ function checkStormState(ship) {
   if (nowIn && nowIn !== wasIn) {
     if (!game.firstStormSeen) {
       game.firstStormSeen = true;
-      setMessage("Storm waters! Sailing through is faster but risky.", "warning");
+      setMessage(
+        "Storm waters! Sailing through is faster but risky.",
+        "warning",
+      );
     }
     if (Math.random() < stormDamageChance(ship.hullTier || 0)) {
       applyStormStrike();
@@ -1367,7 +1384,8 @@ function recoverShip(index) {
 
 function pirateIslandsActive() {
   return islands.filter(
-    (island) => island.kind === "pirate" && !game.destroyedPirateIslands.has(island.id),
+    (island) =>
+      island.kind === "pirate" && !game.destroyedPirateIslands.has(island.id),
   );
 }
 
@@ -1470,7 +1488,9 @@ function tickPirates(delta, nowMs) {
     const dy = goalY - pirate.y;
     const len = Math.hypot(dx, dy);
     if (len > 0.5) {
-      const speed = retreating ? PIRATES.pirateSpeed * 1.25 : PIRATES.pirateSpeed;
+      const speed = retreating
+        ? PIRATES.pirateSpeed * 1.25
+        : PIRATES.pirateSpeed;
       pirate.x += (dx / len) * speed * delta;
       pirate.y += (dy / len) * speed * delta;
       pirate.angle = Math.atan2(dy, dx);
@@ -1546,7 +1566,10 @@ function tickHomeRaids(nowMs) {
     return;
   }
 
-  const defense = Math.min(0.85, game.home.cannonTowerTier * PIRATES.cannonTowerProtection);
+  const defense = Math.min(
+    0.85,
+    game.home.cannonTowerTier * PIRATES.cannonTowerProtection,
+  );
   if (Math.random() < defense) {
     pushToast("Cannon Towers drove off a pirate raid!", "success");
     return;
@@ -1555,7 +1578,10 @@ function tickHomeRaids(nowMs) {
   const rawPct =
     PIRATES.raidGoldPctMin +
     Math.random() * (PIRATES.raidGoldPctMax - PIRATES.raidGoldPctMin);
-  const vaultReduction = Math.min(0.85, game.home.bankVaultTier * PIRATES.bankVaultProtection);
+  const vaultReduction = Math.min(
+    0.85,
+    game.home.bankVaultTier * PIRATES.bankVaultProtection,
+  );
   const finalPct = rawPct * (1 - vaultReduction);
   const lost = Math.max(1, Math.round(game.gold * finalPct));
   game.gold = Math.max(0, game.gold - lost);
@@ -1566,7 +1592,11 @@ function tickHomeRaids(nowMs) {
 function fightWinChance(ship) {
   return Math.max(
     0.1,
-    Math.min(0.9, PIRATES.combatBaseWin + (ship.cannonTier || 0) * PIRATES.combatCannonAdvantage),
+    Math.min(
+      0.9,
+      PIRATES.combatBaseWin +
+        (ship.cannonTier || 0) * PIRATES.combatCannonAdvantage,
+    ),
   );
 }
 
@@ -1772,7 +1802,9 @@ function renderCombatPopup() {
     payBtn.textContent = `Pay them off (${payCost}g)`;
     payBtn.classList.add("success");
     payBtn.disabled = !!c.animating || game.gold < payCost;
-    payBtn.addEventListener("click", () => attemptPayOff(pirate, ship, payCost));
+    payBtn.addEventListener("click", () =>
+      attemptPayOff(pirate, ship, payCost),
+    );
     ui.modalActions.append(payBtn);
 
     const surrenderBtn = document.createElement("button");
@@ -1818,29 +1850,28 @@ function fireRound(ship) {
   const playerRollText = `<span class="combat-die rolling">?</span><span class="combat-damage player">${playerDamage} dmg</span>`;
   c._playerRollText = playerRollText;
 
-  animateRoll("#playerRollDisplay", playerRollText)
-    .then(() => {
-      c.pirateHp = Math.max(0, c.pirateHp - playerDamage);
-      c.log.push(`Cannons fire — ${playerDamage} damage to pirate hull.`);
+  animateRoll("#playerRollDisplay", playerRollText).then(() => {
+    c.pirateHp = Math.max(0, c.pirateHp - playerDamage);
+    c.log.push(`Cannons fire — ${playerDamage} damage to pirate hull.`);
+    renderCombatPopup();
+
+    if (c.pirateHp <= 0) {
+      c.log.push(`The pirate vessel breaks apart!`);
+      c.animating = false;
       renderCombatPopup();
+      return;
+    }
 
-      if (c.pirateHp <= 0) {
-        c.log.push(`The pirate vessel breaks apart!`);
-        c.animating = false;
-        renderCombatPopup();
-        return;
-      }
-
-      const pirateDamage = rollPirateDamage();
-      const pirateRollText = `<span class="combat-die rolling">?</span><span class="combat-damage pirate">${pirateDamage} dmg</span>`;
-      c._pirateRollText = pirateRollText;
-      return animateRoll("#pirateRollDisplay", pirateRollText).then(() => {
-        c.playerHp = Math.max(0, c.playerHp - pirateDamage);
-        c.log.push(`Pirate volley — ${pirateDamage} damage to your hull.`);
-        c.animating = false;
-        renderCombatPopup();
-      });
+    const pirateDamage = rollPirateDamage();
+    const pirateRollText = `<span class="combat-die rolling">?</span><span class="combat-damage pirate">${pirateDamage} dmg</span>`;
+    c._pirateRollText = pirateRollText;
+    return animateRoll("#pirateRollDisplay", pirateRollText).then(() => {
+      c.playerHp = Math.max(0, c.playerHp - pirateDamage);
+      c.log.push(`Pirate volley — ${pirateDamage} damage to your hull.`);
+      c.animating = false;
+      renderCombatPopup();
     });
+  });
 }
 
 const RETREAT_MS = {
@@ -1864,7 +1895,10 @@ function attemptFlee(pirate, ship) {
   if (Math.random() < fleeChance(ship)) {
     pirate.cooldownUntil = performance.now() + RETREAT_MS.fleeWin;
     nudgePirateAway(pirate, ship, 220);
-    pushToast(`The ${ship.name} slips away! Pirate retreats to base.`, "success");
+    pushToast(
+      `The ${ship.name} slips away! Pirate retreats to base.`,
+      "success",
+    );
     endCombat();
   } else {
     const dmg = rollPirateDamage();
@@ -1883,10 +1917,7 @@ function attemptPayOff(pirate, ship, cost) {
   game.gold -= cost;
   pirate.cooldownUntil = performance.now() + RETREAT_MS.payOff;
   nudgePirateAway(pirate, ship, 220);
-  pushToast(
-    `Paid the pirates ${cost}g — they sail back to base.`,
-    "info",
-  );
+  pushToast(`Paid the pirates ${cost}g — they sail back to base.`, "info");
   endCombat();
 }
 
@@ -2043,7 +2074,10 @@ function processLanePort(lane, ship, island) {
   if (soldCount > 0) parts.push(`sold ${soldCount} for ${soldGold}g`);
   if (bought > 0) parts.push(`loaded ${bought} ${buy}`);
   if (parts.length > 0) {
-    pushToast(`${ship.name} at ${island.name}: ${parts.join(", ")}.`, "success");
+    pushToast(
+      `${ship.name} at ${island.name}: ${parts.join(", ")}.`,
+      "success",
+    );
   } else if (soldCount === 0 && bought === 0) {
     pushToast(`${ship.name} at ${island.name}: no trade this stop.`, "info");
   }
@@ -2132,7 +2166,10 @@ function renderPirateNegotiation() {
     endCombat();
     return;
   }
-  const distance = Math.hypot(island.x - homeIsland().x, island.y - homeIsland().y);
+  const distance = Math.hypot(
+    island.x - homeIsland().x,
+    island.y - homeIsland().y,
+  );
   const tributeCost = Math.round(PIRATES.tributeBaseCost + distance * 0.18);
   const tributeLeft = game.tributePeace[island.id] || 0;
   const hireActive = game.hireUntil > performance.now();
@@ -2142,10 +2179,12 @@ function renderPirateNegotiation() {
 
   showModal({
     title: `${island.name}`,
-    body:
-      "Pirates eye your colors. Choose your move — fight, pay, or settle a deal.",
+    body: "Pirates eye your colors. Choose your move — fight, pay, or settle a deal.",
     stats: [
-      ["Tribute peace remaining", tributeLeft > 0 ? `${tributeLeft} voyages` : "None"],
+      [
+        "Tribute peace remaining",
+        tributeLeft > 0 ? `${tributeLeft} voyages` : "None",
+      ],
       [
         "Hired protection",
         hireActive ? `${hireMinutesLeft} min remaining` : "None",
@@ -2224,7 +2263,10 @@ function buy(resource) {
   }
 
   if (cargoCount() >= game.ship.capacity) {
-    setMessage(`The ${game.ship.name.toLowerCase()} cargo hold is full.`, "warning");
+    setMessage(
+      `The ${game.ship.name.toLowerCase()} cargo hold is full.`,
+      "warning",
+    );
     return;
   }
 
@@ -2391,7 +2433,9 @@ function unassignedShips() {
 }
 
 function tradePostIslands() {
-  return islands.filter((island) => game.tradePosts.has(island.id) && island.discovered);
+  return islands.filter(
+    (island) => game.tradePosts.has(island.id) && island.discovered,
+  );
 }
 
 function laneCanCreate() {
@@ -2551,7 +2595,8 @@ function renderActionPanels() {
     .forEach(([type, template]) => {
       const noShipyard = game.home.shipyardTier === 0;
       const requiresAcademy = template.requires === "navalAcademy";
-      const academyMissing = requiresAcademy && game.home.navalAcademyTier === 0;
+      const academyMissing =
+        requiresAcademy && game.home.navalAcademyTier === 0;
       const locked = noShipyard || academyMissing;
       const canAfford = game.gold >= template.cost;
       const lockReason = noShipyard
@@ -2601,7 +2646,8 @@ function renderActionPanels() {
         detail: onLane
           ? "Running a shipping lane. Close the lane in the Routes tab to free this ship."
           : `Switch control to this ship. It currently holds ${Object.values(ship.cargo).reduce((sum, amount) => sum + amount, 0)} of ${ship.capacity} cargo.`,
-        buttonText: ship.id === game.activeShipId ? "Active" : onLane ? "Locked" : "Use",
+        buttonText:
+          ship.id === game.activeShipId ? "Active" : onLane ? "Locked" : "Use",
         disabled: !atHome || ship.id === game.activeShipId || onLane,
         locked: !atHome || onLane,
         onClick: () => switchShip(ship.id),
@@ -2767,7 +2813,9 @@ function buildLaneCreatorForm() {
     updateLaneCreator("avoidStorms", e.target.checked),
   );
   toggleRow.append(checkbox);
-  toggleRow.append(document.createTextNode(" Avoid storm waters (slower, safer)"));
+  toggleRow.append(
+    document.createTextNode(" Avoid storm waters (slower, safer)"),
+  );
   wrap.append(toggleRow);
 
   const buttons = document.createElement("div");
@@ -2801,7 +2849,9 @@ function laneFormRow(label, field, currentValue, options) {
     if (opt.value === currentValue) o.selected = true;
     select.append(o);
   });
-  select.addEventListener("change", (e) => updateLaneCreator(field, e.target.value));
+  select.addEventListener("change", (e) =>
+    updateLaneCreator(field, e.target.value),
+  );
   row.append(lab, select);
   return row;
 }
@@ -3144,7 +3194,8 @@ function drawHomeBuildings() {
 
 function drawIsland(island) {
   if (!island.discovered && !isRevealedAt(island.x, island.y)) return;
-  if (island.kind === "pirate" && game.destroyedPirateIslands.has(island.id)) return;
+  if (island.kind === "pirate" && game.destroyedPirateIslands.has(island.id))
+    return;
 
   ctx.save();
   ctx.translate(island.x, island.y);
