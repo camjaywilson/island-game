@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Island Shipping Tycoon</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="top-bar" aria-label="Game status">
+        <div class="stat-row">
+          <div class="stat">
+            <span class="stat-label">Gold</span>
+            <strong id="goldCounter">150g</strong>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Cargo</span>
+            <strong id="cargoCounter">0 / 5</strong>
+          </div>
+          <div class="stat wide">
+            <span class="stat-label">Dock</span>
+            <strong id="dockStatus">Sailing</strong>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Found</span>
+            <strong id="discoveryCounter">1 / 25</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="app-grid">
+        <aside class="side-panel trade-panel" aria-label="Trade controls">
+          <section class="panel-section island-card">
+            <div>
+              <span class="eyebrow">Current Port</span>
+              <h2 id="islandName">Open Sea</h2>
+            </div>
+            <p id="islandDescription">Sail to an island and dock to trade.</p>
+            <div id="tradePostAction"></div>
+          </section>
+
+          <section class="panel-section">
+            <div class="section-title">
+              <h3>Market</h3>
+              <span id="marketHint">Dock nearby</span>
+            </div>
+            <div class="market-heading" aria-hidden="true">
+              <span>Good</span>
+              <span>Buy</span>
+              <span>Sell</span>
+            </div>
+            <div id="marketList" class="market-list"></div>
+          </section>
+
+          <section class="panel-section">
+            <div class="section-title">
+              <h3>Warehouse</h3>
+              <span>Home stock</span>
+            </div>
+            <div id="warehouseList" class="inventory-list"></div>
+          </section>
+
+          <section class="panel-section">
+            <div class="section-title">
+              <h3>Ship Hold</h3>
+              <span id="currentShipLabel">Rowboat</span>
+            </div>
+            <div id="cargoList" class="inventory-list"></div>
+          </section>
+        </aside>
+
+        <div class="map-column">
+          <div class="canvas-wrap">
+            <canvas id="gameCanvas" width="1280" height="820" aria-label="Ocean map"></canvas>
+          </div>
+          <section class="compass-strip" aria-label="Home compass">
+            <div class="compass-dial">
+              <span class="compass-arrow" id="homeCompassArrow"></span>
+            </div>
+            <div>
+              <span class="eyebrow">Home Compass</span>
+              <strong id="homeCompassText">Home Harbor nearby</strong>
+            </div>
+          </section>
+        </div>
+
+        <aside class="side-panel home-panel" aria-label="Home base and ship controls">
+          <nav class="home-tabs" aria-label="Home menu sections">
+            <button class="tab-button active" type="button" data-home-tab="shipyard">Shipyard</button>
+            <button class="tab-button" type="button" data-home-tab="routes">Routes</button>
+            <button class="tab-button" type="button" data-home-tab="base">Base</button>
+          </nav>
+
+          <section class="panel-section home-menu-section active" data-home-section="shipyard">
+            <div class="section-title">
+              <h3>Shipyard</h3>
+              <span id="shipyardHint">Ship + crew</span>
+            </div>
+            <div id="shipActionList" class="action-list"></div>
+          </section>
+
+          <section class="panel-section home-menu-section" data-home-section="routes">
+            <div class="section-title">
+              <h3>Shipping Lanes</h3>
+              <span id="routeHint">Later phase</span>
+            </div>
+            <div id="routeActionList" class="action-list"></div>
+          </section>
+
+          <section class="panel-section home-menu-section" data-home-section="base">
+            <div class="section-title">
+              <h3>Home Base</h3>
+              <span id="homeHint">Buildings</span>
+            </div>
+            <div id="homeActionList" class="action-list"></div>
+          </section>
+        </aside>
+      </section>
+
+      <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="false"></div>
+
+      <div class="modal-veil" id="modalVeil" hidden>
+        <div class="modal-card" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalBody">
+          <h2 class="modal-title" id="modalTitle"></h2>
+          <p class="modal-body" id="modalBody"></p>
+          <div class="modal-stats" id="modalStats"></div>
+          <div class="modal-actions" id="modalActions"></div>
+        </div>
+      </div>
+    </main>
+
+    <script src="./game.js"></script>
+  </body>
+</html>
