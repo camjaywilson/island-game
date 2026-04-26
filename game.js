@@ -149,16 +149,6 @@ const islands = [
     discovered: true,
     discoveryBonus: 0,
     description: "Your starting island buys every cargo at steady prices.",
-    prices: {
-      Coconuts: 8,
-      Fish: 12,
-      Iron: 22,
-      Wood: 14,
-      Sugar: 16,
-      Spices: 26,
-      Silver: 44,
-      Cloth: 20,
-    },
   },
   {
     id: "coral",
@@ -171,16 +161,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 70,
     description: "A fishing village that pays extra for wood and sugar.",
-    prices: {
-      Coconuts: 9,
-      Fish: 6,
-      Iron: 18,
-      Wood: 24,
-      Sugar: 25,
-      Spices: 21,
-      Silver: 36,
-      Cloth: 19,
-    },
   },
   {
     id: "ironhold",
@@ -193,16 +173,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 90,
     description: "A rocky forge island hungry for fish and coconuts.",
-    prices: {
-      Coconuts: 22,
-      Fish: 24,
-      Iron: 9,
-      Wood: 16,
-      Sugar: 18,
-      Spices: 30,
-      Silver: 29,
-      Cloth: 24,
-    },
   },
   {
     id: "mango",
@@ -215,16 +185,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 80,
     description: "A sunny trade stop with cheap sugar and a taste for iron.",
-    prices: {
-      Coconuts: 10,
-      Fish: 14,
-      Iron: 34,
-      Wood: 20,
-      Sugar: 7,
-      Spices: 28,
-      Silver: 41,
-      Cloth: 25,
-    },
   },
   {
     id: "timber",
@@ -237,16 +197,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 80,
     description: "A forest island selling wood and buying food for its crews.",
-    prices: {
-      Coconuts: 21,
-      Fish: 22,
-      Iron: 20,
-      Wood: 8,
-      Sugar: 17,
-      Spices: 22,
-      Silver: 38,
-      Cloth: 19,
-    },
   },
   {
     id: "sunset",
@@ -259,16 +209,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 120,
     description: "A bright market island that weaves cloth and buys sugar.",
-    prices: {
-      Coconuts: 18,
-      Fish: 16,
-      Iron: 23,
-      Wood: 15,
-      Sugar: 31,
-      Spices: 27,
-      Silver: 40,
-      Cloth: 9,
-    },
   },
   {
     id: "pepper",
@@ -281,16 +221,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 130,
     description: "A fragrant spice island that pays well for cloth and fish.",
-    prices: {
-      Coconuts: 13,
-      Fish: 29,
-      Iron: 24,
-      Wood: 18,
-      Sugar: 15,
-      Spices: 8,
-      Silver: 42,
-      Cloth: 33,
-    },
   },
   {
     id: "northstar",
@@ -303,16 +233,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 160,
     description: "A cold-water dock with cheap fish and strong iron demand.",
-    prices: {
-      Coconuts: 16,
-      Fish: 7,
-      Iron: 36,
-      Wood: 21,
-      Sugar: 19,
-      Spices: 31,
-      Silver: 44,
-      Cloth: 22,
-    },
   },
   {
     id: "goldfin",
@@ -325,16 +245,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 260,
     description: "A far atoll with gold ore and expensive everyday goods.",
-    prices: {
-      Coconuts: 32,
-      Fish: 34,
-      Iron: 18,
-      Wood: 30,
-      Sugar: 29,
-      Spices: 36,
-      Silver: 14,
-      Cloth: 31,
-    },
   },
   {
     id: "marble",
@@ -347,16 +257,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 220,
     description: "A stony shoal that wants food and finished cloth.",
-    prices: {
-      Coconuts: 28,
-      Fish: 31,
-      Iron: 8,
-      Wood: 22,
-      Sugar: 20,
-      Spices: 35,
-      Silver: 34,
-      Cloth: 30,
-    },
   },
   {
     id: "orchid",
@@ -369,16 +269,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 240,
     description: "A remote flower island that pays top coin for gold ore.",
-    prices: {
-      Coconuts: 17,
-      Fish: 23,
-      Iron: 27,
-      Wood: 17,
-      Sugar: 25,
-      Spices: 9,
-      Silver: 58,
-      Cloth: 29,
-    },
   },
   {
     id: "anchor",
@@ -391,16 +281,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 210,
     description: "A western harbor with hungry sailors and cheap fish.",
-    prices: {
-      Coconuts: 25,
-      Fish: 7,
-      Iron: 22,
-      Wood: 26,
-      Sugar: 24,
-      Spices: 30,
-      Silver: 39,
-      Cloth: 20,
-    },
   },
   {
     id: "clothmere",
@@ -413,16 +293,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 230,
     description: "A textile island buying spice and gold ore for dyes.",
-    prices: {
-      Coconuts: 20,
-      Fish: 17,
-      Iron: 26,
-      Wood: 21,
-      Sugar: 18,
-      Spices: 42,
-      Silver: 51,
-      Cloth: 8,
-    },
   },
   {
     id: "palmwatch",
@@ -435,16 +305,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 180,
     description: "A quiet coconut island with a steady need for lumber.",
-    prices: {
-      Coconuts: 6,
-      Fish: 15,
-      Iron: 24,
-      Wood: 33,
-      Sugar: 19,
-      Spices: 26,
-      Silver: 42,
-      Cloth: 20,
-    },
   },
   {
     id: "ember",
@@ -457,16 +317,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 290,
     description: "A far forge port paying high prices for sugar and cloth.",
-    prices: {
-      Coconuts: 22,
-      Fish: 28,
-      Iron: 8,
-      Wood: 24,
-      Sugar: 39,
-      Spices: 32,
-      Silver: 31,
-      Cloth: 37,
-    },
   },
   {
     id: "reefgate",
@@ -479,16 +329,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 260,
     description: "A reef town that grows sugar and needs iron tools.",
-    prices: {
-      Coconuts: 18,
-      Fish: 23,
-      Iron: 41,
-      Wood: 20,
-      Sugar: 7,
-      Spices: 29,
-      Silver: 44,
-      Cloth: 26,
-    },
   },
   {
     id: "silverglen",
@@ -501,16 +341,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 310,
     description: "A southern mining island with strong demand for food.",
-    prices: {
-      Coconuts: 35,
-      Fish: 37,
-      Iron: 16,
-      Wood: 24,
-      Sugar: 31,
-      Spices: 34,
-      Silver: 13,
-      Cloth: 28,
-    },
   },
   {
     id: "bluecap",
@@ -523,16 +353,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 260,
     description: "A small timber island that pays for coconuts and spices.",
-    prices: {
-      Coconuts: 34,
-      Fish: 19,
-      Iron: 23,
-      Wood: 8,
-      Sugar: 22,
-      Spices: 44,
-      Silver: 35,
-      Cloth: 24,
-    },
   },
   {
     id: "mistfall",
@@ -545,16 +365,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 330,
     description: "A far northwest island with woven sails and costly ore.",
-    prices: {
-      Coconuts: 24,
-      Fish: 20,
-      Iron: 29,
-      Wood: 23,
-      Sugar: 27,
-      Spices: 34,
-      Silver: 55,
-      Cloth: 8,
-    },
   },
   {
     id: "brightdock",
@@ -567,16 +377,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 350,
     description: "A distant sunny dock that pays high for fish and wood.",
-    prices: {
-      Coconuts: 21,
-      Fish: 42,
-      Iron: 25,
-      Wood: 39,
-      Sugar: 7,
-      Spices: 32,
-      Silver: 46,
-      Cloth: 27,
-    },
   },
   {
     id: "crabstone",
@@ -589,16 +389,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 370,
     description: "A rugged southwest island that trades iron for food.",
-    prices: {
-      Coconuts: 38,
-      Fish: 35,
-      Iron: 8,
-      Wood: 25,
-      Sugar: 28,
-      Spices: 31,
-      Silver: 33,
-      Cloth: 24,
-    },
   },
   {
     id: "saltspire",
@@ -611,16 +401,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 390,
     description: "A remote southern port where miners pay for fresh goods.",
-    prices: {
-      Coconuts: 36,
-      Fish: 7,
-      Iron: 21,
-      Wood: 28,
-      Sugar: 35,
-      Spices: 37,
-      Silver: 48,
-      Cloth: 30,
-    },
   },
   {
     id: "redfern",
@@ -633,16 +413,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 280,
     description: "A northern spice island looking for cloth and coconuts.",
-    prices: {
-      Coconuts: 40,
-      Fish: 23,
-      Iron: 25,
-      Wood: 20,
-      Sugar: 22,
-      Spices: 8,
-      Silver: 41,
-      Cloth: 39,
-    },
   },
   {
     id: "greenwharf",
@@ -655,16 +425,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 320,
     description: "A lower-map lumber port that buys iron and sugar.",
-    prices: {
-      Coconuts: 25,
-      Fish: 18,
-      Iron: 43,
-      Wood: 8,
-      Sugar: 36,
-      Spices: 30,
-      Silver: 40,
-      Cloth: 22,
-    },
   },
   {
     id: "crownreef",
@@ -677,16 +437,6 @@ const islands = [
     discovered: false,
     discoveryBonus: 360,
     description: "A northern reef mine with a taste for spices and cloth.",
-    prices: {
-      Coconuts: 30,
-      Fish: 25,
-      Iron: 17,
-      Wood: 27,
-      Sugar: 28,
-      Spices: 46,
-      Silver: 13,
-      Cloth: 43,
-    },
   },
 ];
 
@@ -699,19 +449,6 @@ islands.forEach((island) => {
   );
   island.discoveryBonus = Math.round(island.discoveryBonus * 1.2);
 });
-
-function backfillIslandPrices() {
-  islands.forEach((island) => {
-    if (island.kind === "pirate") return;
-    resources.forEach((resource) => {
-      if (typeof island.prices[resource] === "number") return;
-      const base = RESOURCE_BASE_PRICE[resource] || 20;
-      const variation = 0.7 + Math.random() * 0.8;
-      island.prices[resource] = Math.max(4, Math.round(base * variation));
-    });
-  });
-}
-backfillIslandPrices();
 
 islands.push(
   {
@@ -755,11 +492,6 @@ islands.push(
     discoveryBonus: 320,
     description:
       "Misty terraces of tea bushes. Pays well for Glass and Silver.",
-    prices: {
-      Tea: 14,
-      Glass: 58,
-      Silver: 56,
-    },
   },
   {
     id: "glassgate",
@@ -773,11 +505,6 @@ islands.push(
     discoveryBonus: 320,
     description:
       "Furnace island that turns sand into bottles and panes. Wants spice and tea.",
-    prices: {
-      Glass: 16,
-      Spices: 46,
-      Tea: 52,
-    },
   },
   {
     id: "spireside",
@@ -791,11 +518,6 @@ islands.push(
     discoveryBonus: 280,
     description:
       "Sun-baked cliffs growing rare spices. Pays top coin for Cloth and Tea.",
-    prices: {
-      Spices: 11,
-      Cloth: 44,
-      Tea: 48,
-    },
   },
   {
     id: "gullrock",
@@ -809,11 +531,6 @@ islands.push(
     discoveryBonus: 260,
     description:
       "Far-north cold-water rock with cheap fish and big appetite for sugar.",
-    prices: {
-      Fish: 6,
-      Sugar: 38,
-      Coconuts: 28,
-    },
   },
   {
     id: "dawnsend",
@@ -827,13 +544,63 @@ islands.push(
     discoveryBonus: 280,
     description:
       "An ancient pine island at the edge of charted seas. Wants Iron and Glass.",
-    prices: {
-      Wood: 7,
-      Iron: 42,
-      Glass: 50,
-    },
   },
 );
+
+const REGION_NEEDS = {
+  NW: ["Iron", "Tea"],
+  NE: ["Wood", "Glass"],
+  SW: ["Spices", "Coconuts"],
+  SE: ["Cloth", "Sugar"],
+  central: [],
+};
+
+function islandRegion(island) {
+  if (island.id === "home") return "central";
+  const home = islands[0];
+  const west = island.x < home.x;
+  const north = island.y < home.y;
+  if (west && north) return "NW";
+  if (!west && north) return "NE";
+  if (west && !north) return "SW";
+  return "SE";
+}
+
+function priceJitter(islandId, resource, range) {
+  let h = 0;
+  const key = `${islandId}|${resource}`;
+  for (let i = 0; i < key.length; i += 1) {
+    h = (h * 31 + key.charCodeAt(i)) | 0;
+  }
+  const span = range * 2 + 1;
+  return ((h % span) + span) % span - range;
+}
+
+function computeIslandPrices(island) {
+  const region = islandRegion(island);
+  const needs = REGION_NEEDS[region] || [];
+  const isCentral = region === "central";
+  const prices = {};
+  resources.forEach((resource) => {
+    const base = RESOURCE_BASE_PRICE[resource] || 20;
+    let price;
+    if (!isCentral && resource === island.produces) {
+      price = Math.round(base * 0.55) + priceJitter(island.id, resource, 1);
+    } else if (!isCentral && needs.includes(resource)) {
+      price = Math.round(base * 1.45) + priceJitter(island.id, resource, 2);
+    } else {
+      price = base + priceJitter(island.id, resource, 3);
+    }
+    prices[resource] = Math.max(2, price);
+  });
+  island.region = region;
+  island.prices = prices;
+}
+
+islands.forEach((island) => {
+  if (island.kind === "pirate") return;
+  computeIslandPrices(island);
+});
 
 const PIRATES = {
   detectionRadius: 380,
